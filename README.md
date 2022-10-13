@@ -1,5 +1,18 @@
 [![Build Status](https://travis-ci.org/AndiDittrich/NodeMCU-Tool.svg?branch=master)](https://travis-ci.org/AndiDittrich/NodeMCU-Tool)
 
+Notes about this fork
+---------------------
+This fork adds `io-module` flag in cli to allow to choose whether `io` or `file` module is to be used.
+
+The following pull requests also have been applied:
+
+[fix: upgrade prompt dep to fix non-existent property warning](https://github.com/AndiDittrich/NodeMCU-Tool/pull/92)
+
+[Upgrade node-serialport dependency to v10 (Breaking Change)](https://github.com/AndiDittrich/NodeMCU-Tool/pull/93)
+
+[Lua file functions moved to standard io module](https://github.com/AndiDittrich/NodeMCU-Tool/issues/89)
+
+
 NodeMCU-Tool
 ============
 Upload/Download Lua files to your ESP8266/ESP32 module with NodeMCU firmware.
