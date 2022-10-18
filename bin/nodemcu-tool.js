@@ -85,10 +85,7 @@ _cli
     .option('--debug', 'Enable debug mode - all status messages + stacktraces are shown', null)
 
     // io-debug mode
-    .option('--io-debug', 'Enable io-debug mode - logs all serial rx/tx messages (requires enabled debug mode)', null)
-
-    // io module enable
-    .option('--io-module', "Enable Lua 'io' module - use standard Lua 'io' module instead of 'file' module", null);
+    .option('--io-debug', 'Enable io-debug mode - logs all serial rx/tx messages (requires enabled debug mode)', null);
 
 _cli
     .command('fsinfo')
@@ -283,7 +280,6 @@ _cli
         data.minify = false;
         data.compile = false;
         data.keeppath = false;
-        data.ioModule = false;
 
         // write config to file
         await _optionsManager.store(data);
