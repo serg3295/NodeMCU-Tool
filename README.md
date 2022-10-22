@@ -2,7 +2,7 @@
 
 Notes about this fork
 ---------------------
-This fork adds `io-module` flag in cli to allow to choose whether `io` or `file` module is to be used.
+Add support for the dev-dsp 32-idf 4 branch. Depending on the type of ESP, the appropriate set of commands is automatically selected.
 
 The following pull requests also have been applied:
 
