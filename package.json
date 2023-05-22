@@ -1,6 +1,6 @@
 {
     "name": "nodemcu-tool",
-    "version": "3.2.1",
+    "version": "4.0.0",
     "description": "Command line tool to upload and manage files on your NodeMCU / ESP8266 Module / ESP32 Module.",
     "keywords": [
         "cli",
@@ -18,19 +18,20 @@
     "bugs": "https://github.com/AndiDittrich/NodeMCU-Tool/issues",
     "repository": "AndiDittrich/NodeMCU-Tool",
     "files": [
-        "bin",
-        "lib",
-        "helloworld.lua",
-        "CHANGED.md",
+        "out",
+        "prebuilds",
+        "CHANGES.md",
         "LICENSE.md",
         "README.md"
     ],
-    "main": "./lib/nodemcu-connector.js",
+    "main": "./out/nodemcu-tool.js",
     "bin": {
-        "nodemcu-tool": "bin/nodemcu-tool.js"
+        "nodemcu-tool": "out/nodemcu-tool.js"
     },
     "scripts": {
-        "test": "eslint lib/ bin/;"
+        "test": "eslint lib/ bin/;",
+        "esbuild-dev": "esbuild ./bin/nodemcu-tool.js --outfile=out/nodemcu-tool.js --sourcemap --bundle --external:@serialport/bindings-cpp/prebuilds --platform=node",
+        "esbuild-prod": "esbuild ./bin/nodemcu-tool.js --outfile=out/nodemcu-tool.js --minify --target=es6 --bundle --external:@serialport/bindings-cpp/prebuilds --platform=node"
     },
     "engines": {
         "node": ">=12.0"
@@ -52,6 +53,7 @@
         "serialport": "^10.4.0"
     },
     "devDependencies": {
+        "esbuild": "^0.17.19",
         "eslint": "^4.18.0",
         "eslint-config-aenondynamics": "^0.2.0"
     }

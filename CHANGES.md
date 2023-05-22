@@ -1,3 +1,9 @@
+## --- Branch 4.x --- ##
+
+### 4.0.0 ###
+
+* Added support for the dev-esp32-idf4 branch of NodeMCU-firmware
+
 ## --- Branch 3.x --- ##
 
 Refactored the codebase - make extensive use of ES6 feature like async/await
@@ -51,7 +57,7 @@ Refactored the codebase - make extensive use of ES6 feature like async/await
 * Bugfix: Uploading of empty files failed - thanks to [T-vK on GitHub](https://github.com/AndiDittrich/NodeMCU-Tool/pull/37) #37
 
 ### 2.1.0 ###
-* Added: Support for native [encode](http://nodemcu.readthedocs.io/en/master/en/modules/encoder/) module to use **base64** as transfer encoding (speed up the transfer by factor 4..10) - suggested by [MickaelGuilloux on GitHub](https://github.com/AndiDittrich/NodeMCU-Tool/pull/34) #32 
+* Added: Support for native [encode](http://nodemcu.readthedocs.io/en/master/en/modules/encoder/) module to use **base64** as transfer encoding (speed up the transfer by factor 4..10) - suggested by [MickaelGuilloux on GitHub](https://github.com/AndiDittrich/NodeMCU-Tool/pull/34) #32
 * Changed: Progress bar appearance (shades_classic theme of **cli-progress v1.4** is used)
 * Bugfix: By uploading multiple files the transfer-encoder functions where uploaded each time
 
@@ -63,7 +69,7 @@ Refactored the codebase - make extensive use of ES6 feature like async/await
 
 ### 2.0.2 ###
 * Bugfix: Upload command failed because of API changes in NodeMCU Firmware **v1.5.4** - thanks to [curioussavage on GitHub](https://github.com/AndiDittrich/NodeMCU-Tool/issues/22) #22
-* Bugfix: Fix crash when trying to upload a folder - thanks to [sakisds on GitHub](https://github.com/AndiDittrich/NodeMCU-Tool/pull/20) #20 
+* Bugfix: Fix crash when trying to upload a folder - thanks to [sakisds on GitHub](https://github.com/AndiDittrich/NodeMCU-Tool/pull/20) #20
 
 ### 2.0.1 ###
 * Bugfix: `devices` command was broken since the last release (refactoring issue) - thanks to [otbe on GitHub](https://github.com/AndiDittrich/NodeMCU-Tool/issues/18) #18
@@ -105,12 +111,12 @@ Refactored the codebase - make extensive use of ES6 feature like async/await
 * Changed: The device-list is not shown anymore in case there is an error during the connection establishment - please use the `devices` command
 * Changed: On error, the process will now exit with return-code **1**
 * Improved: Hex-Upload-Helper is only uploaded one-times during a connector session (speedup when uploading multiple files)
-* Bugfix: Upload Errors were not forwarded to the frontend 
+* Bugfix: Upload Errors were not forwarded to the frontend
 * Bugfix: The `--compile` options doesn't check the file-type
 
 ### 1.4.0 ###
 * Added: Ability to provide remote destination filename or keep relative path in destination filename - thanks to [loicortola on GitHub](https://github.com/AndiDittrich/NodeMCU-Tool/pull/5)
-* Added: Shortcut to the executable file to the root dir 
+* Added: Shortcut to the executable file to the root dir
 * Changed: `fsinfo` will return the total number of files as well as a `No Files found` message - feature requested [on GitHub](https://github.com/AndiDittrich/NodeMCU-Tool/issues/3)
 * Changed: related to the destination filename option, the arguments of the `upload` function has changed - third party applications require an update!
 
@@ -127,7 +133,7 @@ Refactored the codebase - make extensive use of ES6 feature like async/await
 ### 1.2.0 ###
 * Added: Binary file transfer
 * Added: Download function to fetch file from NodeMCU (binary save)
-* Added: Additional check to verify the existence of a remote file for read/write operations 
+* Added: Additional check to verify the existence of a remote file for read/write operations
 * Changed: File-Content is hex-encoded before upload - this allows binary file uploads and "unlimited" line size (not longer limited to 235chars per line!)
 * Changed: All used Lua commands/functions are centralized in NodeMcuConnector
 * Changed: the `--optimize` flag only works for Lua files with file-type `.lua`
