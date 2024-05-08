@@ -29,12 +29,14 @@
         "nodemcu-tool": "out/nodemcu-tool.js"
     },
     "scripts": {
-        "test": "eslint lib/ bin/;",
-        "esbuild-dev": "esbuild ./bin/nodemcu-tool.js --outfile=out/nodemcu-tool.js --sourcemap --bundle --external:@serialport/bindings-cpp/prebuilds --platform=node",
-        "build": "esbuild ./bin/nodemcu-tool.js --outfile=out/nodemcu-tool.js --minify --target=es6 --bundle --external:@serialport/bindings-cpp/prebuilds --platform=node"
+        "build": "npm run esbuild-base production",
+        "build-dev": "npm run esbuild-base",
+        "watch": "npm run esbuild-base watch",
+        "lint": "eslint lib/ bin/;",
+        "esbuild-base": "node esbuild.mjs"
     },
     "engines": {
-        "node": ">=12.0"
+        "node": ">=18.0"
     },
     "preferGlobal": true,
     "author": "Andi Dittrich (https://andidittrich.de)",
@@ -50,7 +52,7 @@
         "logging-facility": "^2.0.1",
         "luamin": "^1.0.4",
         "prompt": "^1.3.0",
-        "serialport": "^10.4.0"
+        "serialport": "^12.0.0"
     },
     "devDependencies": {
         "esbuild": "^0.21.1",
