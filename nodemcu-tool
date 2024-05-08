@@ -1,4 +1,4 @@
 #!/usr/bin/env bash
 
 # Shortcut
-node ./bin/nodemcu-tool.js "$@"
+node ./out/nodemcu-tool.js "$@"
