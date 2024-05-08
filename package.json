@@ -31,7 +31,7 @@
     "scripts": {
         "test": "eslint lib/ bin/;",
         "esbuild-dev": "esbuild ./bin/nodemcu-tool.js --outfile=out/nodemcu-tool.js --sourcemap --bundle --external:@serialport/bindings-cpp/prebuilds --platform=node",
-        "esbuild-prod": "esbuild ./bin/nodemcu-tool.js --outfile=out/nodemcu-tool.js --minify --target=es6 --bundle --external:@serialport/bindings-cpp/prebuilds --platform=node"
+        "build": "esbuild ./bin/nodemcu-tool.js --outfile=out/nodemcu-tool.js --minify --target=es6 --bundle --external:@serialport/bindings-cpp/prebuilds --platform=node"
     },
     "engines": {
         "node": ">=12.0"
