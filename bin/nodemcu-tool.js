@@ -5,6 +5,8 @@
 
 // load utils
 const _pkg = require('../package.json');
+// const { program } = require('commander');
+// const _cli = program;
 const _cli = require('commander');
 const _progressbar = require('cli-progress');
 const _colors = require('colors');
@@ -43,7 +45,7 @@ function asyncWrapper(promise){
             })
 
             // gracefull exit
-            
+
             .then(() => {
                 process.exit(0)
             })
@@ -220,7 +222,7 @@ _cli
                 }
             }
         });
-        
+
         // transform to lower case
         const c = result.confirm.toLowerCase();
 
