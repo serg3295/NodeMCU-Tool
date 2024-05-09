@@ -8,7 +8,7 @@ const options = {
   minify: prod ? true : false,
   sourcemap: prod ? false : true,
   platform: "node",
-  target: "es6", //"node18",
+  target: "es2022",
   outfile: "./out/nodemcu-tool.js",
   external: [
     "@serialport/bindings-cpp/prebuilds",
