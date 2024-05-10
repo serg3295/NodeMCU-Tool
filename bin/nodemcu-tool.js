@@ -5,9 +5,8 @@
 
 // load utils
 const _pkg = require('../package.json');
-// const { program } = require('commander');
-// const _cli = program;
-const _cli = require('commander');
+const { Command } = require('commander');
+const program = new Command();
 const _progressbar = require('cli-progress');
 const _colors = require('colors');
 const _prompt = require('../lib/cli/prompt');
@@ -28,7 +27,7 @@ _nodemcutool.onOutput(function(message){
 function asyncWrapper(promise){
     return function(...args){
         // extract options (last argument)
-        _optionsManager.parse(args.pop())
+        _optionsManager.parse(args.pop(), program.opts())
 
             // trigger command
             .then(options => {
@@ -67,7 +66,7 @@ _nodemcutool.onError(err => {
 });
 
 // CLI setup
-_cli
+program
     // read file version package.json
     .version(_pkg.version)
 
@@ -89,8 +88,7 @@ _cli
     // io-debug mode
     .option('--io-debug', 'Enable io-debug mode - logs all serial rx/tx messages (requires enabled debug mode)', null);
 
-_cli
-    .command('fsinfo')
+program.command('fsinfo')
     .description('Show file system info (current files, memory usage)')
 
     // json output mode
@@ -116,15 +114,13 @@ _cli
         await _nodemcutool.fsinfo(format);
     }));
 
-_cli
-    .command('run <file>')
+program.command('run <file>')
     .description('Executes an existing .lua or .lc file on NodeMCU')
     .action(asyncWrapper(async (filename) => {
         await _nodemcutool.run(filename);
     }));
 
-_cli
-    .command('upload [files...]')
+program.command('upload [files...]')
     .description('Upload Files to NodeMCU (ESP8266) target')
 
     // file minification
@@ -180,23 +176,19 @@ _cli
         });
     }));
 
-_cli
-    .command('download <file>')
+program.command('download <file>')
     .description('Download files from NodeMCU (ESP8266) target')
 
     .action(asyncWrapper(async (remoteFilename) => {
         await _nodemcutool.download(remoteFilename);
     }));
 
-_cli
-    .command('remove <file>')
-    .description('Removes a file from NodeMCU filesystem')
+program.command('remove <file>').description('Removes a file from NodeMCU filesystem')
     .action(asyncWrapper(async (filename) => {
         await _nodemcutool.remove(filename);
     }));
 
-_cli
-    .command('mkfs')
+program.command('mkfs')
     .description('Format the SPIFFS filesystem - ALL FILES ARE REMOVED')
 
     // force fs creation without prompt
@@ -237,8 +229,7 @@ _cli
     }));
 
 
-_cli
-    .command('terminal')
+program.command('terminal')
     .description('Opens a Terminal connection to NodeMCU')
     .option('--run <filename>', 'Running a file on NodeMCU before starting the terminal session', null)
     .action(asyncWrapper(async (options) => {
@@ -253,8 +244,7 @@ _cli
         await _nodemcutool.terminal(initialCommand);
     }));
 
-_cli
-    .command('init')
+program.command('init')
     .description('Initialize a project-based Configuration (file) within current directory')
     .action(asyncWrapper(async () => {
         _logger.log('Creating project based configuration file..');
@@ -287,8 +277,7 @@ _cli
         await _optionsManager.store(data);
     }));
 
-_cli
-    .command('devices')
+program.command('devices')
     .description('Shows a list of all available NodeMCU Modules/Serial Devices')
 
     // disable the device filter based on vendorId's of common NodeMCU modules
@@ -301,8 +290,7 @@ _cli
         await _nodemcutool.devices(options.all, options.json);
     }));
 
-_cli
-    .command('reset')
+program.command('reset')
     .description('Execute a Hard-Reset of the Module using DTR/RTS reset circuit')
 
     // softreset mode
@@ -320,18 +308,10 @@ _cli
 
     }));
 
-_cli
-    .command('*')
-    .action((cmd) => {
-        _logger.error('Unknown command "' + cmd + '"');
-        _cli.outputHelp();
-        process.exit(1);
-    });
-
 // run the commander dispatcher
-_cli.parse(process.argv);
+program.parse(process.argv);
 
 // default action (no command provided)
 if (!process.argv.slice(2).length) {
-    _cli.outputHelp();
+    program.outputHelp();
 }
