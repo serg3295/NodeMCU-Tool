@@ -1,17 +1,8 @@
-[![Build Status](https://travis-ci.org/AndiDittrich/NodeMCU-Tool.svg?branch=master)](https://travis-ci.org/AndiDittrich/NodeMCU-Tool)
 
 Notes about this fork
 ---------------------
-Add support for the dev-dsp 32-idf 4 branch. Depending on the type of ESP, the appropriate set of commands is automatically selected.
-
-The following pull requests also have been applied:
-
-[fix: upgrade prompt dep to fix non-existent property warning](https://github.com/AndiDittrich/NodeMCU-Tool/pull/92)
-
-[Upgrade node-serialport dependency to v10 (Breaking Change)](https://github.com/AndiDittrich/NodeMCU-Tool/pull/93)
-
-[Lua file functions moved to standard io module](https://github.com/AndiDittrich/NodeMCU-Tool/issues/89)
-
+Adds support for the latest nodemcu-firmware/dev-esp32 branch. 
+The fork supports both ESP8266 and ESP32, ESP32c6, ESP32h2, ESP32xx chips.
 
 NodeMCU-Tool
 ============
