@@ -1,5 +1,9 @@
 ## --- Branch 4.x --- ##
 
+### 4.0.1 ###
+
+* Update dependencies
+
 ### 4.0.0 ###
 
 * Added support for the dev-esp32-idf4 branch of NodeMCU-firmware
