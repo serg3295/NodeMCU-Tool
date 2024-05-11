@@ -7,3 +7,6 @@ dev/*
 test/*
 .firmware/*
 kit/*
+out*
+.vscode
+.zip
