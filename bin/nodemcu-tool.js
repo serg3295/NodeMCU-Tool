@@ -32,7 +32,7 @@ function asyncWrapper(promise){
             // trigger command
             .then(options => {
                 // re-merge
-                return promise(...args, options)
+                return promise(...args, options);
             })
 
             // trigger disconnect
@@ -46,7 +46,7 @@ function asyncWrapper(promise){
             // gracefull exit
 
             .then(() => {
-                process.exit(0)
+                process.exit(0);
             })
 
             // handle low-level errors
@@ -55,7 +55,7 @@ function asyncWrapper(promise){
                 _logger.debug(err.stack);
                 process.exit(1);
             });
-    }
+    };
 }
 
 // low level com errors
