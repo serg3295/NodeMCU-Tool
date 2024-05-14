@@ -55,7 +55,7 @@
         "serialport": "^12.0.0"
     },
     "devDependencies": {
-        "esbuild": "^0.21.1",
+        "esbuild": "^0.21.2",
         "eslint": "^9.2.0",
         "globals": "^15.2.0"
     }
