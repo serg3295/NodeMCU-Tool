@@ -1,5 +1,10 @@
 ## --- Branch 4.x --- ##
 
+
+### 4.1.0 ###
+
+* Added support for ESP32-C6, -H2 etc. chips
+
 ### 4.0.1 ###
 
 * Update dependencies
