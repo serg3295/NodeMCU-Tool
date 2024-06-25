@@ -50,7 +50,7 @@ The following NodeMCU firmware versions are verified
 * NodeMCU Lua 3.0.0
 
 **ESP32**
-* preliminary support (esp32-dev.latest)
+* support (esp32-dev.latest)
 
 ---------------------------------------
 
