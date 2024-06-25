@@ -47,7 +47,7 @@
         "colors": "^1.1.2",
         "commander": "^12.1.0",
         "fs-magic": "^2.1.1",
-        "glob": "^10.3.15",
+        "glob": "^10.4.2",
         "is-glob": "^4.0.1",
         "logging-facility": "^2.0.1",
         "luamin": "^1.0.4",
