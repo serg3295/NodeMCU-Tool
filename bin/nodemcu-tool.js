@@ -97,7 +97,7 @@ program.command('fsinfo')
     // raw output mode
     .option('--raw', 'Display output as simple text with tab delimiter', null)
 
-    .action(asyncWrapper(async (options) => {
+    .action(asyncWrapper(async options => {
         // output format
         let format = 'human';
 
@@ -116,7 +116,7 @@ program.command('fsinfo')
 
 program.command('run <file>')
     .description('Executes an existing .lua or .lc file on NodeMCU')
-    .action(asyncWrapper(async (filename) => {
+    .action(asyncWrapper(async filename => {
         await _nodemcutool.run(filename);
     }));
 
@@ -179,12 +179,12 @@ program.command('upload [files...]')
 program.command('download <file>')
     .description('Download files from NodeMCU (ESP8266) target')
 
-    .action(asyncWrapper(async (remoteFilename) => {
+    .action(asyncWrapper(async remoteFilename => {
         await _nodemcutool.download(remoteFilename);
     }));
 
 program.command('remove <file>').description('Removes a file from NodeMCU filesystem')
-    .action(asyncWrapper(async (filename) => {
+    .action(asyncWrapper(async filename => {
         await _nodemcutool.remove(filename);
     }));
 
@@ -194,7 +194,7 @@ program.command('mkfs')
     // force fs creation without prompt
     .option('--noninteractive', 'Execute command without user interaction', null)
 
-    .action(asyncWrapper(async (options) => {
+    .action(asyncWrapper(async options => {
         // no prompt!
         if (options.noninteractive){
             // format
@@ -232,7 +232,7 @@ program.command('mkfs')
 program.command('terminal')
     .description('Opens a Terminal connection to NodeMCU')
     .option('--run <filename>', 'Running a file on NodeMCU before starting the terminal session', null)
-    .action(asyncWrapper(async (options) => {
+    .action(asyncWrapper(async options => {
 
         // run a initial command on startup ?
         let initialCommand = null;
@@ -286,7 +286,7 @@ program.command('devices')
     // json output mode
     .option('--json', 'Display output JSON encoded', null)
 
-    .action(asyncWrapper(async (options) => {
+    .action(asyncWrapper(async options => {
         await _nodemcutool.devices(options.all, options.json);
     }));
 
@@ -296,7 +296,7 @@ program.command('reset')
     // softreset mode
     .option('--softreset', 'Resets the module using node.restart() command', null)
 
-    .action(asyncWrapper(async (options) => {
+    .action(asyncWrapper(async options => {
         // software reset
         if (options.softreset){
             await _nodemcutool.softreset();
