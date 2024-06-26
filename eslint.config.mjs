@@ -1,5 +1,7 @@
 import js from "@eslint/js";
 import globals from "globals";
+import stylistic from "@stylistic/eslint-plugin";
+
 
 export default [
   js.configs.recommended,
@@ -11,13 +13,21 @@ export default [
         ...globals.node,
       },
     },
+    plugins: {
+      "@stylistic": stylistic,
+    },
   },
 
   {
     rules: {
       ...js.configs.recommended.rules,
       "no-console": "warn",
-      semi: "warn",
+      "@stylistic/no-extra-semi": ["off"],
+      "@stylistic/semi": ["warn", "always"],
+      "@stylistic/quotes": ["error", "single", {"avoidEscape": true}],
+      "@stylistic/brace-style": ["error", "1tbs"],
+      "@stylistic/function-call-spacing": ["error", "never"],
+      "@stylistic/arrow-parens": ["warn", "as-needed"],
 
       // from eslint-config-aenondynamics:
 
@@ -93,6 +103,10 @@ export default [
     languageOptions: {
       sourceType: "module",
     },
+    "rules": {
+      "@stylistic/quotes": ["error", "double", {"avoidEscape": true}],
+    }
+
   },
 
   {
