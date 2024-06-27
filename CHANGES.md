@@ -1,5 +1,8 @@
 ## --- Branch 4.x --- ##
 
+### Unreleased ###
+
+* Added support for new esp32 feature - node.info()
 
 ### 4.1.0 ###
 
