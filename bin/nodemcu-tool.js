@@ -121,7 +121,7 @@ program.command('run <file>')
     }));
 
 program.command('upload [files...]')
-    .description('Upload Files to NodeMCU (ESP8266) target')
+    .description('Upload Files to NodeMCU target')
 
     // file minification
     .option('-m, --minify', 'Minifies the file before uploading', null)
@@ -177,7 +177,7 @@ program.command('upload [files...]')
     }));
 
 program.command('download <file>')
-    .description('Download files from NodeMCU (ESP8266) target')
+    .description('Download files from NodeMCU target')
 
     .action(asyncWrapper(async remoteFilename => {
         await _nodemcutool.download(remoteFilename);
