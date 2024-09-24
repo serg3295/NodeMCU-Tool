@@ -1,5 +1,5 @@
 #!/usr/bin/env node
-/*eslint no-process-exit: 0*/
+/* eslint no-process-exit: 0 */
 
 // Manages User CLI interactions
 
@@ -19,13 +19,13 @@ const _logger = _loggingFacility.getLogger('NodeMCU-Tool');
 _loggingFacility.addBackend('fancy-cli');
 
 // general content passhrough to stdin
-_nodemcutool.onOutput(function(message){
+_nodemcutool.onOutput(function (message) {
     process.stdout.write(message);
 });
 
 // wrap async tasks
-function asyncWrapper(promise){
-    return function(...args){
+function asyncWrapper(promise) {
+    return function (...args) {
         // extract options (last argument)
         _optionsManager.parse(args.pop(), program.opts())
 
@@ -37,13 +37,13 @@ function asyncWrapper(promise){
 
             // trigger disconnect
             .then(() => {
-                if (_nodemcutool.Connector.isConnected()){
+                if (_nodemcutool.Connector.isConnected()) {
                     _logger.log('disconnecting');
                     return _nodemcutool.disconnect();
                 }
             })
 
-            // gracefull exit
+        // gracefull exit
 
             .then(() => {
                 process.exit(0);
@@ -102,12 +102,12 @@ program.command('fsinfo')
         let format = 'human';
 
         // json format ?
-        if (options.json){
+        if (options.json) {
             format = 'json';
         }
 
         // raw format (text)
-        if (options.raw){
+        if (options.raw) {
             format = 'raw';
         }
 
@@ -142,14 +142,14 @@ program.command('upload [files...]')
         // initialize a new progress bar
         const bar = new _progressbar.Bar({
             clearOnComplete: true,
-            hideCursor: true
+            hideCursor: true,
         }, _progressbar.Presets.shades_classic);
 
         // expand glob expressions
         const files = await _globExpression.expand(filelist);
 
         // files provided ?
-        if (files.length == 0){
+        if (files.length == 0) {
             _logger.error('No files provided for upload (empty file-list)');
             return;
         }
@@ -157,15 +157,13 @@ program.command('upload [files...]')
         // handle multiple uploads
         let currentFileNumber = 0;
 
-        await _nodemcutool.upload(files, options, function(current, total, fileNumber){
-
+        await _nodemcutool.upload(files, options, function (current, total, fileNumber) {
             // new file ?
-            if (currentFileNumber != fileNumber){
+            if (currentFileNumber != fileNumber) {
                 bar.stop();
                 currentFileNumber = fileNumber;
                 bar.start(total, 1);
-            }else{
-
+            } else {
                 bar.update(current);
 
                 // finished ?
@@ -196,7 +194,7 @@ program.command('mkfs')
 
     .action(asyncWrapper(async options => {
         // no prompt!
-        if (options.noninteractive){
+        if (options.noninteractive) {
             // format
             await _nodemcutool.mkfs();
             return;
@@ -210,16 +208,16 @@ program.command('mkfs')
                     description: _colors.cyan('[NodeMCU-Tool]') + '~ Do you really want to format the filesystem and delete all file ?',
                     message: 'Type yes/no',
                     required: true,
-                    default: 'no'
-                }
-            }
+                    default: 'no',
+                },
+            },
         });
 
         // transform to lower case
         const c = result.confirm.toLowerCase();
 
         // check
-        if (c!='y' && c!='yes'){
+        if (c != 'y' && c != 'yes') {
             _logger.error('Formatting aborted');
             return;
         }
@@ -228,15 +226,13 @@ program.command('mkfs')
         await _nodemcutool.mkfs();
     }));
 
-
 program.command('terminal')
     .description('Opens a Terminal connection to NodeMCU')
     .option('--run <filename>', 'Running a file on NodeMCU before starting the terminal session', null)
     .action(asyncWrapper(async options => {
-
         // run a initial command on startup ?
         let initialCommand = null;
-        if (options.run){
+        if (options.run) {
             initialCommand = _luaCommandBuilder.prepare('run', [options.run]);
         }
 
@@ -257,15 +253,15 @@ program.command('init')
                     description: _colors.cyan('[NodeMCU-Tool]') + '~ Baudrate in Bit per Seconds, e.g. 115200 (default)',
                     required: false,
                     message: 'Only Integers allowed!',
-                    default: 115200
+                    default: 115200,
                 },
                 port: {
                     pattern: /^.+$/,
                     description: _colors.cyan('[NodeMCU-Tool]') + '~ Serial connection to use, e.g. COM1 or /dev/ttyUSB2',
                     required: false,
-                    default: '/dev/ttyUSB0'
-                }
-            }
+                    default: '/dev/ttyUSB0',
+                },
+            },
         });
 
         // set defaults
@@ -298,14 +294,13 @@ program.command('reset')
 
     .action(asyncWrapper(async options => {
         // software reset
-        if (options.softreset){
+        if (options.softreset) {
             await _nodemcutool.softreset();
 
         // hard-reset nRST
-        }else{
+        } else {
             await _nodemcutool.hardreset();
         }
-
     }));
 
 // run the commander dispatcher
