@@ -1,5 +1,5 @@
 #!/usr/bin/env node
-/* eslint no-process-exit: 0 */
+/* eslint n/no-process-exit: 0 */
 
 // Manages User CLI interactions
 

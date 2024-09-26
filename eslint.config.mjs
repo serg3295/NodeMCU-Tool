@@ -1,9 +1,11 @@
 import js from "@eslint/js";
+import nodePlugin from "eslint-plugin-n"
 import globals from "globals";
 import stylistic from "@stylistic/eslint-plugin";
 
 export default [
   js.configs.recommended,
+  nodePlugin.configs["flat/recommended-script"],
   stylistic.configs["recommended-flat"],
 
   {
@@ -21,6 +23,10 @@ export default [
   {
     rules: {
       ...js.configs.recommended.rules,
+
+      "n/exports-style": ["error", "module.exports"],
+      "n/no-sync": "error",
+      "n/hashbang": ["error", { ignoreUnpublished: true }],
 
       "@stylistic/indent": ["error", 4],
       "@stylistic/no-extra-semi": ["error"],
