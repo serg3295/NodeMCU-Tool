@@ -60,6 +60,7 @@
         "esbuild": "^0.23.1",
         "eslint": "^8.57.0",
         "eslint-plugin-n": "^17.10.3",
+        "eslint-plugin-promise": "^7.1.0",
         "globals": "^15.9.0"
     }
 }

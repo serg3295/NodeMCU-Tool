@@ -41,6 +41,7 @@ function asyncWrapper(promise) {
                     _logger.log('disconnecting');
                     return _nodemcutool.disconnect();
                 }
+                return 0;
             })
 
         // gracefull exit

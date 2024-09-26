@@ -1,11 +1,13 @@
 import js from "@eslint/js";
 import nodePlugin from "eslint-plugin-n"
+import pluginPromise from "eslint-plugin-promise";
 import globals from "globals";
 import stylistic from "@stylistic/eslint-plugin";
 
 export default [
   js.configs.recommended,
   nodePlugin.configs["flat/recommended-script"],
+  pluginPromise.configs["flat/recommended"],
   stylistic.configs["recommended-flat"],
 
   {
@@ -27,6 +29,8 @@ export default [
       "n/exports-style": ["error", "module.exports"],
       "n/no-sync": "error",
       "n/hashbang": ["error", { ignoreUnpublished: true }],
+
+      "promise/always-return": ["error", { ignoreLastCallback: true }],
 
       "@stylistic/indent": ["error", 4],
       "@stylistic/no-extra-semi": ["error"],
