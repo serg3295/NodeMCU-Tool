@@ -1,5 +1,5 @@
 import js from "@eslint/js";
-import nodePlugin from "eslint-plugin-n"
+import nodePlugin from "eslint-plugin-n";
 import pluginPromise from "eslint-plugin-promise";
 import globals from "globals";
 import stylistic from "@stylistic/eslint-plugin";
