@@ -35,11 +35,11 @@ export default [
       "@stylistic/indent": ["error", 4],
       "@stylistic/no-extra-semi": ["error"],
       "@stylistic/semi": ["warn", "always"],
-      "@stylistic/quotes": ["error", "single", { avoidEscape: true }],
+      "@stylistic/quotes": ["error", "double", { avoidEscape: true }],
       "@stylistic/arrow-parens": ["warn", "as-needed"], // This rule enforces parentheses around arrow function parameters regardless of arity.
       "@stylistic/brace-style": ["error", "1tbs"], // This rule enforces consistent brace style for blocks.
-      "@stylistic/operator-linebreak": ["error", "after", { overrides: { "?": "before", ":": "before" } }],
-      "@stylistic/indent-binary-ops": "off",
+      // similar to prettier's --experimental-ternaries
+      "@stylistic/operator-linebreak": ["error", "before", { overrides: { "?": "after" } }],
 
       "no-console": "warn",
       "no-useless-return": "warn",
@@ -61,7 +61,6 @@ export default [
     },
     rules: {
       "@stylistic/indent": ["error", 2],
-      "@stylistic/quotes": ["error", "double", { avoidEscape: true }],
     },
   },
 
