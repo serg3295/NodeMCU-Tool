@@ -2,6 +2,11 @@
 
 ### Unreleased ###
 
+### 4.2.1 ###
+
+* Fixed glob-expression
+* Disallow downloading of non-existent remote file
+
 ### 4.2.0 ###
 
 * Added support for new esp32 feature - node.info()
