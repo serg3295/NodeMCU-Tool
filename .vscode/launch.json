@@ -19,9 +19,11 @@
         // "-b9600",
         // "--debug",
         // "--io-debug",
-        // "upload",
+        "upload",
+        "*.lua",
+        // "*.txt"
         // "helloworld.lua"
-        "fsinfo"
+        // "fsinfo"
       ],
     "preLaunchTask": "buildDev"
     }
