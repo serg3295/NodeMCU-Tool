@@ -2,6 +2,10 @@
 
 ### Unreleased ###
 
+### 4.3.0 ###
+
+* Added support for esp32 firmware compiled from the stale dev-esp32-idf3-final branch
+
 ### 4.2.1 ###
 
 * Fixed glob-expression
