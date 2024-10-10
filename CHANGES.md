@@ -2,6 +2,8 @@
 
 ### Unreleased ###
 
+* Added 'Espressif' to known vendorIDs list
+
 ### 4.3.0 ###
 
 * Added support for esp32 firmware compiled from the stale dev-esp32-idf3-final branch
