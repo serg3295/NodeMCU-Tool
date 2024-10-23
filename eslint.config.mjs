@@ -1,3 +1,4 @@
+// @ts-lint
 import js from "@eslint/js";
 import nodePlugin from "eslint-plugin-n";
 import pluginPromise from "eslint-plugin-promise";

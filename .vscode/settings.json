@@ -1,5 +1,15 @@
 {
   "eslint.lintTask.enable": true,
   "eslint.lintTask.options": "bin/ lib/**;",
-  "eslint.useFlatConfig": true
+  "eslint.useFlatConfig": true,
+  "eslint.validate": [
+    "javascript",
+  ],
+  // Disable the default formatter, use eslint instead
+  "prettier.enable": false,
+  "eslint.format.enable": true,
+  "editor.formatOnSave": false,
+  "[javascript]": {
+    "editor.defaultFormatter": "dbaeumer.vscode-eslint"
+  },
 }
