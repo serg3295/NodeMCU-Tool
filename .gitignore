@@ -8,3 +8,4 @@ test/*
 .firmware/*
 kit/*
 out*
+.vscode/launch.json
