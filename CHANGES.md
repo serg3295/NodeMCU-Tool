@@ -2,8 +2,10 @@
 
 ### Unreleased ###
 
-* Added 'Espressif' to known vendorIDs list
+### 4.4.0 ###
+
 * Added support for new esp32 'console' module
+* Added 'Espressif' to known vendorIDs list
 
 ### 4.3.0 ###
 
