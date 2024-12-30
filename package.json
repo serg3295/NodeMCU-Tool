@@ -42,6 +42,7 @@
     "author": "Andi Dittrich (https://andidittrich.de)",
     "license": "MIT",
     "dependencies": {
+        "@serialport/bindings-cpp": "^13.0.1",
         "async-magic": "^1.3.0",
         "cli-progress": "^3.1.0",
         "colors": "^1.1.2",
@@ -52,7 +53,7 @@
         "logging-facility": "^2.0.1",
         "luamin": "^1.0.4",
         "prompt": "^1.3.0",
-        "serialport": "^12.0.0"
+        "serialport": "^13.0.0"
     },
     "devDependencies": {
         "@eslint/js": "^9.17.0",
