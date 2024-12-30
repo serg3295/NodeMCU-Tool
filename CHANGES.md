@@ -2,6 +2,17 @@
 
 ### Unreleased ###
 
+### 5.0.0 ###
+
+ ⚠️  **BREAKING CHANGE**
+
+* Bump the minimum NodeJS version to v20.18.1 - which aligns with `serialport` v13's minimum.
+
+* Fixes "Error: Open (SetCommState): Unknown error code 31" on Windows
+* Migrate to ESLint v9
+* Upgrade serialport to v13
+* Upgrade dependencies
+
 ### 4.4.0 ###
 
 * Added support for new esp32 'console' module

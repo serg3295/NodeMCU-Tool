@@ -1,6 +1,6 @@
 {
     "name": "nodemcu-tool",
-    "version": "4.4.0",
+    "version": "5.0.0",
     "description": "Command line tool to upload and manage files on your NodeMCU / ESP8266 Module / ESP32 Module.",
     "keywords": [
         "cli",
@@ -36,7 +36,7 @@
         "esbuild-base": "node esbuild.mjs"
     },
     "engines": {
-        "node": ">=18.0"
+        "node": ">=20.18.1"
     },
     "preferGlobal": true,
     "author": "Andi Dittrich (https://andidittrich.de)",
