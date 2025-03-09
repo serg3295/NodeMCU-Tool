@@ -1,4 +1,0 @@
-#!/usr/bin/env bash
-
-# Shortcut
-node ./out/nodemcu-tool.js "$@"
