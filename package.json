@@ -18,15 +18,15 @@
     "bugs": "https://github.com/AndiDittrich/NodeMCU-Tool/issues",
     "repository": "AndiDittrich/NodeMCU-Tool",
     "files": [
-        "out",
+        "bin",
+        "lib",
         "prebuilds",
         "CHANGES.md",
         "LICENSE.md",
         "README.md"
     ],
-    "main": "./out/nodemcu-tool.js",
     "bin": {
-        "nodemcu-tool": "out/nodemcu-tool.js"
+        "nodemcu-tool": "bin/nodemcu-tool.js"
     },
     "scripts": {
         "build": "npm run esbuild-base production",

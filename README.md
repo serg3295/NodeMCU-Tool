@@ -91,9 +91,11 @@ Other ESP8266 platforms may user other interfaces - please refer to their user m
 
 ### Node.js ###
 
-The NodeMCU-Tool is written in javascript and requires [Node.js >= 7.6](https://nodejs.org) as runtime environment. And please don't worry about the wording - NodeMCU and Node.js are two **complete different** things!
-
+The NodeMCU-Tool is written in javascript and requires [Node.js >= 20.18.1](https://nodejs.org) as runtime environment. And please don't worry about the wording - NodeMCU and Node.js are two **complete different** things!
+                             
+<!-- Today node is >= 20.18.1, what about this ? 
 **!! There is currently an issue with Node.js 11 on Windows 10 platforms. Please use Node.js 10 LTS !!**
+-->
 
 In case you're not familiar with [Node.js](https://nodejs.org) and [NPM](https://www.npmjs.com) it's recommended to read some [basic introductions](https://docs.npmjs.com/getting-started/what-is-npm) first!
 Please [download the Node.js installer](https://nodejs.org/en/download/) and install on your system in case it's not already there.
@@ -166,23 +168,10 @@ $ nodemcu-tool --version
 #### For Local Installations ####
 
 This means you have installed nodemcu-tool via NPM **without** the `-g` (global) flag or via the `.zip` / `.tar` package.
-There will be **no** global shortcut to the nodemcu-tool binary! The binary is located in `node_modules/nodemcu-tool/bin/nodemcu-tool.js`
-
-##### Linux, OSX #####
+There will be **no** global shortcut to the nodemcu-tool binary! You can run nodemcu-tool with `npx nodemcu-tool` (or previously `npm exec nodemcu-tool`)
 
 ```bash
-$ cd node_modules/nodemcu-tool/bin
-$ ./nodemcu-tool.js --version
-1.5.0
-```
-
-##### Windows #####
-
-You have to call the node.exe runtime in your command!
-
-```bash
-$ cd node_modules/nodemcu-tool/bin
-$ node nodemcu-tool.js --version
+$ npx nodemcu-tool --version
 1.5.0
 ```
 
